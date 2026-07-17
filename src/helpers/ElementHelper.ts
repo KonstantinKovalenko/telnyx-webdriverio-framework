@@ -5,7 +5,7 @@ export default class ElementHelper {
         await element.click();
     }
 
-    static async type(element: WebdriverIO.Element, value: string): Promise<void> {
+    static async type(element: ChainablePromiseElement, value: string): Promise<void> {
         await element.waitForDisplayed();
         await element.setValue(value);
     }

@@ -1,5 +1,5 @@
 class Header {
-/*     get header () {return $('#site-header')}  */
+    get #header () {return $('#site-header')} 
     get #mainMenu () {return $('#main-menu')}
 
     get productsBtn () {return this.#mainMenu.$('span=Products')}
@@ -7,6 +7,7 @@ class Header {
     get telnyxLogoBtn () {return $('[href="/"]')}
     get solutionsBtn () {return this.#mainMenu.$('span=Solutions')}
     get resourcesBtn () {return this.#mainMenu.$('span=Resources')}
+    get loginBtn () {return this.#header.$('div.ml-auto').$('a=Log in');}
     
 /*     get hamburgerBtn () {return $('[aria-controls="main-menu-content"]')} */
 
