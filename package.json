@@ -22,6 +22,7 @@
     "test": "wdio run config/wdio.chrome.conf.ts",
     "chrome": "wdio run config/wdio.chrome.conf.ts",
     "firefox": "wdio run config/wdio.firefox.conf.ts",
-    "edge": "wdio run config/wdio.edge.conf.ts"
+    "edge": "wdio run config/wdio.edge.conf.ts",
+    "solo": "wdio run config/wdio.chrome.conf.ts --spec ./tests/navigation/navigation.spec.ts"
   }
 }

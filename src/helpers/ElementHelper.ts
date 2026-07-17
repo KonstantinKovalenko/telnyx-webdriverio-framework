@@ -1,6 +1,6 @@
 export default class ElementHelper {
 
-    static async click(element: WebdriverIO.Element): Promise<void> {
+    static async click(element: ChainablePromiseElement): Promise<void> {
         await element.waitForClickable();
         await element.click();
     }
@@ -15,11 +15,16 @@ export default class ElementHelper {
         return element.getText();
     }
 
-    static async isDisplayed(element: WebdriverIO.Element): Promise<boolean> {
-        return element.isDisplayed();
+    static async expectVisibleAndEnabled(element: ChainablePromiseElement) {
+        await expect(element).toBeDisplayed();
+        await expect(element).toBeEnabled();
     }
 
     static async scrollIntoView(element: WebdriverIO.Element): Promise<void> {
         await element.scrollIntoView();
+    }
+
+    static getHeading(text: string) {
+        return $(`h1*=${text}`)
     }
 }

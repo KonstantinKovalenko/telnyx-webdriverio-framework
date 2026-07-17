@@ -1,6 +1,6 @@
 //import { expect } from '@wdio/globals'
 
-describe('', () => {
+describe.skip('', () => {
     it('', async () => {
 
     })

@@ -18,7 +18,7 @@ export const baseConfig: Options.Testrunner = {
 
     exclude: [],
 
-    maxInstances: 5,
+    maxInstances: 1,
 
     logLevel: 'info',
 
@@ -42,5 +42,7 @@ export const baseConfig: Options.Testrunner = {
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000
-    }
+    },
+
+    before: async function () { await browser.maximizeWindow() }
 }

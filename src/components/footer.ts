@@ -1,4 +1,5 @@
 class Footer {
+    get footer () {return $('#site-footer')}
 
 }
 
