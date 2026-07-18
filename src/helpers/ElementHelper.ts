@@ -20,11 +20,11 @@ export default class ElementHelper {
         await expect(element).toBeEnabled();
     }
 
-    static async scrollIntoView(element: WebdriverIO.Element): Promise<void> {
+    static async scrollIntoView(element: ChainablePromiseElement): Promise<void> {
         await element.scrollIntoView();
     }
 
-    static getHeading(text: string) {
-        return $(`h1*=${text}`)
+    static getHeading(text: string, tag: 'h1' | 'h2') {
+        return $(`${tag}*=${text}`);
     }
 }

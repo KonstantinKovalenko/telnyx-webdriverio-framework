@@ -4,9 +4,11 @@ class Header {
 
     get productsBtn () {return this.#mainMenu.$('span=Products')}
     get whyTelnyxBtn () {return this.#mainMenu.$('span=Why Telnyx')}
-    get telnyxLogoBtn () {return $('[href="/"]')}
     get solutionsBtn () {return this.#mainMenu.$('span=Solutions')}
     get resourcesBtn () {return this.#mainMenu.$('span=Resources')}
+    get pricingBtn () {return this.#mainMenu.$('span=Pricing')}
+
+    get telnyxLogoBtn () {return $('[href="/"]')}
     get loginBtn () {return this.#header.$('div.ml-auto').$('a=Log in');}
     
 /*     get hamburgerBtn () {return $('[aria-controls="main-menu-content"]')} */

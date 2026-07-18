@@ -1,7 +1,8 @@
 export const users = {
     validUser:{
-        email: 'mr.random@gmail.com',
-        password: 'WE*asd12389'
+        firstName: 'John',
+        lastName: 'White',
+        email: 'mr.random77@gmail.com'
     },
     invalidUser:{
         email: 'invalid@com',

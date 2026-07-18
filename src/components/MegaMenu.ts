@@ -11,6 +11,8 @@ class MegaMenu {
     get solutionsExploreMoreCaption () {return $('p=Explore more')}
     get solutionsViewAllSolutionsLink () {return $('[data-content="View all solutions"]')}
 
+    get pricingSipTrunking () {return this.solutionsExploreMoreCaption.parentElement().$('a=SIP Trunking')}
+
 }
 
 export default new MegaMenu()
