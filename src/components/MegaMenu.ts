@@ -4,6 +4,7 @@ class MegaMenu {
     get developersIntegrations () {return $('h2=Integrations')}
 
     get resourcesAITemplates () {return $('h2=AI Templates')}
+    get resourcesCenter () {return $('h2=Resource center')}
 
     get solutionsHealthcare () {return $('h2=Healthcare')}
     get solutionsFinance () {return $('h2=Finance')}
@@ -13,6 +14,7 @@ class MegaMenu {
     get solutionsViewAllSolutionsLink () {return $('[data-content="View all solutions"]')}
 
     get pricingSipTrunking () {return this.solutionsExploreMoreCaption.parentElement().$('a=SIP Trunking')}
+    get pricingSMSAPI () {return this.solutionsExploreMoreCaption.parentElement().$('a=SMS API')}
 
 }
 
