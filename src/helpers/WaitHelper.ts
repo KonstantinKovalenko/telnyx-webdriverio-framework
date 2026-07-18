@@ -12,13 +12,10 @@ export default class WaitHelper {
     }
 
     static async waitUntil(
-        condition: () => boolean,
+        condition: () => Promise<boolean>,
         timeout = 10000,
         timeoutMsg = 'Condition was not met'
-    ): Promise<void> {
-        await browser.waitUntil(condition, {
-            timeout,
-            timeoutMsg
-        });
+    ) {
+        await browser.waitUntil(condition, { timeout, timeoutMsg });
     }
 }

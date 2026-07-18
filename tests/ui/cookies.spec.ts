@@ -1,5 +1,6 @@
 import { expect } from '@wdio/globals'
 import homePage from '@pages/home.page.ts'
+import cookieBanner from '@components/CookieBanner.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
 
 
@@ -11,14 +12,14 @@ describe('Cookie banner UI, TC-11', () => {
     it('Should verify the cookie banner can be accepted and disappears', async () => {
         await homePage.open('/')
 
-        await expect(homePage.cookieBanner).toBeDisplayed()
+        await expect(cookieBanner.cookieBanner).toBeDisplayed()
 
-        await elementHelper.click(homePage.acceptAllBtn)
+        await elementHelper.click(cookieBanner.acceptAllBtn)
 
-        await expect(homePage.cookieBanner).not.toBeDisplayed()
+        await expect(cookieBanner.cookieBanner).not.toBeDisplayed()
 
         await homePage.refresh()
 
-        await expect(homePage.cookieBanner).not.toBeDisplayed()
+        await expect(cookieBanner.cookieBanner).not.toBeDisplayed()
     })
 })

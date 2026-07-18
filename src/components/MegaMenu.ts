@@ -1,5 +1,7 @@
 class MegaMenu {
     get productInference () {return $('h2=Inference')}
+    get productVoiceAI () {return $('h2=Voice AI')}
+
     get whyTelnyxGlobalComm () {return $('h2=Global communications')}
     get developersIntegrations () {return $('h2=Integrations')}
 
