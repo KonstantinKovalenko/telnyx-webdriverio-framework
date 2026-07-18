@@ -9,7 +9,8 @@ class Header {
     get pricingBtn () {return this.#mainMenu.$('span=Pricing')}
 
     get telnyxLogoBtn () {return $('[href="/"]')}
-    get loginBtn () {return this.#header.$('div.ml-auto').$('a=Log in');}
+    get loginBtn () {return this.#header.$('div.ml-auto').$('a=Log in')}
+    get contactUsBtn () {return this.#header.$('div.ml-auto').$('a=Contact us')}
     
 /*     get hamburgerBtn () {return $('[aria-controls="main-menu-content"]')} */
 
