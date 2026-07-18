@@ -9,3 +9,9 @@ export const users = {
         password: '1'
     }
 }
+
+export const search = {
+    values:{
+        github: 'GitHub'
+    }
+}

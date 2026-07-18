@@ -24,7 +24,7 @@ export default class ElementHelper {
         await element.scrollIntoView();
     }
 
-    static getHeading(text: string, tag: 'h1' | 'h2') {
+    static getHeading(text: string, tag: 'h1' | 'h2' | 'h3') {
         return $(`${tag}*=${text}`);
     }
 }
