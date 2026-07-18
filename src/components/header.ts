@@ -1,5 +1,5 @@
 class Header {
-    get #header () {return $('#site-header')} 
+    get siteHeader () {return $('#site-header')} 
     get mainMenu () {return $('#main-menu')}
 
     get hamburgerBtn () {return $('[aria-controls="main-menu-content"]')}
@@ -12,9 +12,9 @@ class Header {
     get pricingBtn () {return this.mainMenu.$('span=Pricing')}
     get developersBtn () {return this.mainMenu.$('span=Developers')}
 
-    get loginBtn () {return this.#header.$('div.ml-auto').$('a=Log in')}
-    get contactUsBtn () {return this.#header.$('div.ml-auto').$('a=Contact us')}
-    get signupBtn () {return this.#header.$('div.ml-auto').$('a=Sign up')}
+    get loginBtn () {return this.siteHeader.$('div.ml-auto').$('a=Log in')}
+    get contactUsBtn () {return this.siteHeader.$('div.ml-auto').$('a=Contact us')}
+    get signupBtn () {return this.siteHeader.$('div.ml-auto').$('a=Sign up')}
     
 
 }
