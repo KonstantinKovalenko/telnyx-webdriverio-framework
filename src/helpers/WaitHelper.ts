@@ -1,14 +1,6 @@
 export default class WaitHelper {
     static async waitForVisible(element: ChainablePromiseElement, timeout = 10000): Promise<void> {
-        await element.waitForDisplayed({ timeout });
-    }
-
-    static async waitForClickable(element: WebdriverIO.Element, timeout = 10000): Promise<void> {
-        await element.waitForClickable({ timeout });
-    }
-
-    static async waitForExist(element: WebdriverIO.Element, timeout = 10000): Promise<void> {
-        await element.waitForExist({ timeout });
+        await element.waitForDisplayed({ timeout })
     }
 
     static async waitUntil(
@@ -16,6 +8,6 @@ export default class WaitHelper {
         timeout = 10000,
         timeoutMsg = 'Condition was not met'
     ) {
-        await browser.waitUntil(condition, { timeout, timeoutMsg });
+        await browser.waitUntil(condition, { timeout, timeoutMsg })
     }
 }

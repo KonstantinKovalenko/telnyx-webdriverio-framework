@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import BasePage from '../base.page.ts';
+import BasePage from '../base.page.ts'
 
 class ResourcesPage extends BasePage {
     get mostPopularHeading () {return $('h3=Most popular')}
@@ -12,7 +12,6 @@ class ResourcesPage extends BasePage {
     async getFirstCardDescription(){
         return this.popularCardsArray[0].$('h3')
     }
-
 }
 
 export default new ResourcesPage()

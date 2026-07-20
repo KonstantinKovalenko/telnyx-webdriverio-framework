@@ -25,24 +25,20 @@ describe('Search UI, TC-12', () => {
 
         await elementHelper.scrollIntoView(integrationsPage.searchInput)
 
-        await waitHelper.waitUntil(
-            async () => (await integrationsPage.integrationResults.length) > 1,
+        await waitHelper.waitUntil(async () => (await integrationsPage.integrationResults.length) > 1,
             10000,
-            'Expected more then 1 result'
+            'Expected more than 1 result'
         )
-
-        await expect(await (integrationsPage.integrationResults.length)).toBeGreaterThan(1)
+        expect(await (integrationsPage.integrationResults.length)).toBeGreaterThan(1)
 
         await elementHelper.type(integrationsPage.searchInput, search.values.github)
 
         await expect(integrationsPage.integrationResults[0]).toHaveText(expect.stringContaining(search.values.github))
 
-        await waitHelper.waitUntil(
-            async () => (await integrationsPage.integrationResults.length) === 1,
+        await waitHelper.waitUntil(async () => (await integrationsPage.integrationResults.length) === 1,
             10000,
             'Expected only 1 result'
         )
-
-        await expect(await (integrationsPage.integrationResults.length)).toEqual(1)    
+        expect(await (integrationsPage.integrationResults.length)).toEqual(1)    
     })
 })

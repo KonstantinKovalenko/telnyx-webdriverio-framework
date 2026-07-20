@@ -23,6 +23,6 @@
     "chrome": "wdio run config/wdio.chrome.conf.ts",
     "firefox": "wdio run config/wdio.firefox.conf.ts",
     "edge": "wdio run config/wdio.edge.conf.ts",
-    "solo": "wdio run config/wdio.firefox.conf.ts --spec ./tests/content/resources.spec.ts"
+    "solo": "wdio run config/wdio.firefox.conf.ts --spec ./tests/error/error-pages.spec.ts"
   }
 }

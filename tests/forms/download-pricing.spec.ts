@@ -7,7 +7,6 @@ import megaMenu from '@components/MegaMenu.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
 import waitHelper from '@helpers/WaitHelper.ts'
 
-
 describe('Download pricing form validation, TC-07, TC-08', () => {
     it('Shoud verify the "Download Pricing" form accepts valid input and submits successfully', async () => {
         await homePage.open('/')

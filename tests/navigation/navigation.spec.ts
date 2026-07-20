@@ -1,9 +1,9 @@
 import { expect } from '@wdio/globals'
 import homePage from '@pages/home.page.ts'
+import templatesPage from '@pages/resources/templates.page.ts'
 import header from '@components/Header.ts'
 import megaMenu from '@components/MegaMenu.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
-import templatesPage from '@pages/resources/templates.page.ts'
 
 describe('Navigation, TC-01', () => {
     it('Should verify navigation to the Products Inference page from the Products menu', async () => {

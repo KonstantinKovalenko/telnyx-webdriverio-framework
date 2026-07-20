@@ -24,11 +24,11 @@ describe('Footer content, TC-16', () => {
         await expect(elementHelper.getHeading('Release notes', 'h1')).toBeDisplayed()
 
         await elementHelper.scrollIntoView(footer.siteFooter)
+
         await elementHelper.expectVisibleAndEnabled(footer.cookiePolicyLink)
         await elementHelper.click(footer.cookiePolicyLink)
 
         await expect(browser).toHaveUrl(expect.stringContaining("/cookie-policy"))
         await expect(elementHelper.getHeading('Telnyx Cookie Policy', 'h1')).toBeDisplayed()
-
     })
 })

@@ -15,7 +15,6 @@
       "@components/*": ["src/components/*"],
       "@helpers/*": ["src/helpers/*"],
       "@utils/*": ["src/utils/*"],
-      "@shared-types/*": ["src/types/*"],
       "@config/*": ["config/*"],
       "@tests/*": ["tests/*"]
     },

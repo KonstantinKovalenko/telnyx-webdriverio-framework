@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import BasePage from '../base.page.ts';
+import BasePage from '../base.page.ts'
 
 class ElasticSipPage extends BasePage {
     get downloadPricingHeader () {return $('h2*=Download pricing')}
@@ -14,7 +14,6 @@ class ElasticSipPage extends BasePage {
     async open (){
         await browser.url('https://telnyx.com/pricing/elastic-sip')
     }
-
 }
 
 export default new ElasticSipPage()

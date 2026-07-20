@@ -1,7 +1,7 @@
 import { expect } from '@wdio/globals'
 import { Key } from 'webdriverio'
 import homePage from '@pages/error404.page.ts'
-import aIWidget from '@components/AIWidget.ts'
+import aiWidget from '@components/AIWidget.ts'
 import header from '@components/Header.ts'
 import megaMenu from '@components/MegaMenu.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
@@ -13,39 +13,39 @@ describe('Dynamic widget testing, TC-19, TC-20', () => {
     })
 
     it('Should verify the AI Assistant opens, responds to a user message, and can be closed', async () => {
-        await waitHelper.waitForVisible(aIWidget.aiWidget)
+        await waitHelper.waitForVisible(aiWidget.siteAIWidget)
 
-        await elementHelper.click(aIWidget.openWidgetBtn)
+        await elementHelper.click(aiWidget.openWidgetBtn)
 
-        await expect(aIWidget.chatMessages[0]).toHaveText(expect.stringContaining('Hello! I can help'))
+        await expect(aiWidget.chatMessages[0]).toHaveText(expect.stringContaining('Hello! I can help'))
 
-        await elementHelper.type(aIWidget.userMessageInput, "Hello")
+        await elementHelper.type(aiWidget.userMessageInput, "Hello")
         await browser.keys(Key.Enter)
 
-        await waitHelper.waitUntil(
-            async () => (await aIWidget.chatMessages.length) === 3,
-            10000,
+        await waitHelper.waitUntil(async () => (await aiWidget.chatMessages.length) === 3,
+            15000,
             'Expected 3 chat messages to be displayed'
         )
-        expect(await aIWidget.chatMessages.length).toBeGreaterThan(2)
+        expect(await aiWidget.chatMessages.length).toBeGreaterThan(2)
 
-        await elementHelper.click(aIWidget.closeWidgetBtn)
+        await elementHelper.click(aiWidget.closeWidgetBtn)
+        await expect(aiWidget.userMessageInput).not.toBeClickable()
     })
 
     it('Should verify the AI Assistant remains open during header navigation', async () => {
-        await waitHelper.waitForVisible(aIWidget.aiWidget)
+        await waitHelper.waitForVisible(aiWidget.siteAIWidget)
 
-        await expect(aIWidget.userMessageInput).not.toBeClickable()
+        await expect(aiWidget.userMessageInput).not.toBeClickable()
 
-        await elementHelper.click(aIWidget.openWidgetBtn)
+        await elementHelper.click(aiWidget.openWidgetBtn)
 
-        await expect(aIWidget.userMessageInput).toBeClickable()
+        await expect(aiWidget.userMessageInput).toBeClickable()
 
         await elementHelper.click(header.productsBtn)
         await elementHelper.click(megaMenu.productVoiceAI)
 
         await expect(browser).toHaveUrl(expect.stringContaining('/voice-ai-agents'))
 
-        await expect(aIWidget.userMessageInput).toBeClickable()
+        await expect(aiWidget.userMessageInput).toBeClickable()
     })
 })

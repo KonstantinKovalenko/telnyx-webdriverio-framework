@@ -1,5 +1,6 @@
 class Footer {
     get siteFooter () {return $('#site-footer')}
+    
     get socialSection () {return $('p=Social')}
     get companySection () {return $('p=Company')}
     get legalSection () {return $('p=Legal')}

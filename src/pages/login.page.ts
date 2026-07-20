@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import BasePage from './base.page.ts';
+import BasePage from './base.page.ts'
 
 class LoginPage extends BasePage {
     get signInWithPasswordBtn() {return $('button=Sign in with password')}
@@ -13,12 +13,9 @@ class LoginPage extends BasePage {
     get emailInput () {return $('input[name="email"]')}
     get passwordInput () {return $('input[name="password"]')}
 
-    
-
-
     async open (){
         await browser.url('https://portal.telnyx.com/')
     }
 }
 
-export default new LoginPage();
+export default new LoginPage()

@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import BasePage from '../base.page.ts';
+import BasePage from '../base.page.ts'
 
 class AITemplatesPage extends BasePage {
     get #topTemplatesArray () {return $('.glider-track').$$('div')}
@@ -12,7 +12,6 @@ class AITemplatesPage extends BasePage {
     async getFirstCardTitle (){
         return await this.#topTemplatesArray[0].$('h3').getText()
     }
-
 }
 
 export default new AITemplatesPage()

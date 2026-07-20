@@ -17,7 +17,6 @@ class MegaMenu {
 
     get pricingSipTrunking () {return this.solutionsExploreMoreCaption.parentElement().$('a=SIP Trunking')}
     get pricingSMSAPI () {return this.solutionsExploreMoreCaption.parentElement().$('a=SMS API')}
-
 }
 
 export default new MegaMenu()

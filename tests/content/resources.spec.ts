@@ -19,13 +19,12 @@ describe('Resource center page content, TC-15', () => {
 
         await elementHelper.scrollIntoView(resourcesPage.mostPopularHeading)
 
-        await waitHelper.waitUntil(
-            async () => (await (resourcesPage.popularCardsArray.length)) > 1,
+        await waitHelper.waitUntil(async () => (await (resourcesPage.popularCardsArray.length)) > 1,
             10000,
             'Expected more then 1 result'
         )
 
-        await expect(await (resourcesPage.popularCardsArray).length).toBeGreaterThan(1)
+        await expect(await (resourcesPage.popularCardsArray.length)).toBeGreaterThan(1)
         await expect(await resourcesPage.getFirstCardTitle()).toBeDisplayed()
         await expect(await resourcesPage.getFirstCardDescription()).toBeDisplayed()
     })

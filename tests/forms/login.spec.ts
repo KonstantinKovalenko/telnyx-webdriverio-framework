@@ -14,7 +14,6 @@ describe('Login form validations, TC-05, TC-06', () => {
         await elementHelper.click(header.loginBtn)
 
         await browser.waitUntil(async () => (await browser.getWindowHandles()).length === 2)
-
         await browserHelper.switchToNewTab()
 
         await expect(browser).toHaveUrl(expect.stringContaining('portal.telnyx.com'))
@@ -33,6 +32,8 @@ describe('Login form validations, TC-05, TC-06', () => {
 
     it('Should verify Login form validation with empty required fields', async () => {
         await loginPage.open()
+
+        await expect(browser).toHaveUrl(expect.stringContaining('portal.telnyx.com'))
 
         await elementHelper.expectVisibleAndEnabled(loginPage.emailInput)
 

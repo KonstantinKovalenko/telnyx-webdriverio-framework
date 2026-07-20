@@ -15,8 +15,6 @@ class Header {
     get loginBtn () {return this.siteHeader.$('div.ml-auto').$('a=Log in')}
     get contactUsBtn () {return this.siteHeader.$('div.ml-auto').$('a=Contact us')}
     get signupBtn () {return this.siteHeader.$('div.ml-auto').$('a=Sign up')}
-    
-
 }
 
 export default new Header()

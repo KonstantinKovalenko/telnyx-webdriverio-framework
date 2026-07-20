@@ -3,7 +3,6 @@ import homePage from '@pages/home.page.ts'
 import cookieBanner from '@components/CookieBanner.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
 
-
 describe('Cookie banner UI, TC-11', () => {
     beforeEach(async () => {
         await browser.deleteCookies()

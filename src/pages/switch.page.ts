@@ -1,4 +1,4 @@
-import BasePage from './base.page.ts';
+import BasePage from './base.page.ts'
 
 class SwitchPage extends BasePage {
     get stopOverpayHeading() {return $('h2*=Stop overpaying')}

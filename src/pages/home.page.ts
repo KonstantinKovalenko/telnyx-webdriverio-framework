@@ -1,4 +1,4 @@
-import BasePage from './base.page.js';
+import BasePage from './base.page.js'
 
 class HomePage extends BasePage {
     
