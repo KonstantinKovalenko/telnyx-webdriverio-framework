@@ -65,6 +65,7 @@ describe('Navigation, TC-02, TC-03, TC-04', () => {
         await elementHelper.expectVisibleAndEnabled(templatesPage.backToTemplatesBCrumb)
         await elementHelper.click(templatesPage.backToTemplatesBCrumb)
 
+        await expect(browser).toHaveUrl(expect.stringContaining('/templates'))
         await expect(elementHelper.getHeading('Browse all Voice AI Assistant templates', 'h1')).toBeDisplayed()
     })
 })
