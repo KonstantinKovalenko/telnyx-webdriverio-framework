@@ -20,8 +20,6 @@
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "test": "npm run chrome",
-
     "chrome": "wdio run config/wdio.chrome.conf.ts",
     "firefox": "wdio run config/wdio.firefox.conf.ts",
     "edge": "wdio run config/wdio.edge.conf.ts",
