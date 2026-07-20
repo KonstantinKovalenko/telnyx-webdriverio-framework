@@ -25,6 +25,10 @@
     "chrome": "wdio run config/wdio.chrome.conf.ts",
     "firefox": "wdio run config/wdio.firefox.conf.ts",
     "edge": "wdio run config/wdio.edge.conf.ts",
+    
+    "chrome:dev": "cross-env TEST_ENV=dev wdio run config/wdio.chrome.conf.ts",
+    "chrome:qa": "cross-env TEST_ENV=qa wdio run config/wdio.chrome.conf.ts",
+    "chrome:local": "cross-env TEST_ENV=local wdio run config/wdio.chrome.conf.ts",
 
     "solo": "wdio run config/wdio.chrome.conf.ts --spec ./tests/05-error/18-error-pages.spec.ts",
 
