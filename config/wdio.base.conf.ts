@@ -45,9 +45,8 @@ export const baseConfig: Options.Testrunner = {
     },
 
     before: async function () {
+        // Use a fixed desktop viewport.
+        // maximizeWindow() is unreliable in Linux CI environments.
         await browser.setWindowSize(1920, 1080)
-
-        const size = await browser.getWindowSize()
-        console.log('Window size:', size)
     }
 }

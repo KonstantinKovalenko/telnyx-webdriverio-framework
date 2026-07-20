@@ -9,6 +9,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -32,9 +35,13 @@ jobs:
       - name: Run WebdriverIO tests
         run: npm run chrome
 
-      - name: Upload Allure results
+      - name: Generate Allure report
         if: always()
-        uses: actions/upload-artifact@v4
+        run: npm run allure:generate
+
+      - name: Deploy Allure report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: allure-results
-          path: allure-results
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
