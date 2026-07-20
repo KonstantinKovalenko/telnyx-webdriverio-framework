@@ -44,5 +44,10 @@ export const baseConfig: Options.Testrunner = {
         timeout: 60000
     },
 
-    before: async function () { await browser.maximizeWindow() }
+    before: async function () {
+        await browser.setWindowSize(1920, 1080)
+
+        const size = await browser.getWindowSize()
+        console.log('Window size:', size)
+    }
 }
