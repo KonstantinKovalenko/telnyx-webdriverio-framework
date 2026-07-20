@@ -12,6 +12,6 @@ export const users = {
 
 export const search = {
     values:{
-        github: 'GitHub'
+        github: 'Github'
     }
 }
