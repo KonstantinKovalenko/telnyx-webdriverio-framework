@@ -24,6 +24,8 @@ describe('Contact us form email validation, TC-09', () => {
 
         await elementHelper.click(contactUsPage.submitBtn)
 
+        await contactUsPage.emailValidationMsg.waitForExist()
+        
         await expect(contactUsPage.emailValidationMsg).toHaveText(expect.stringContaining('Must be valid email'))
     })
 })

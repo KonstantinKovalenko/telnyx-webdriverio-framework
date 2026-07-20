@@ -4,7 +4,6 @@ import homePage from '@pages/home.page.ts'
 import loginPage from '@pages/login.page.ts'
 import header from '@components/Header.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
-import browserHelper from '@helpers/BrowserHelper.ts'
 
 describe('Login form validations, TC-05, TC-06', () => {
     it('Should verify Login form validation using an invalid email format', async () => {
@@ -14,8 +13,8 @@ describe('Login form validations, TC-05, TC-06', () => {
         await elementHelper.click(header.loginBtn)
 
         await browser.waitUntil(async () => (await browser.getWindowHandles()).length === 2)
-        await browserHelper.switchToNewTab()
-
+        await browser.switchToWindow((await browser.getWindowHandles()).at(-1)!)
+        
         await expect(browser).toHaveUrl(expect.stringContaining('portal.telnyx.com'))
 
         await elementHelper.expectVisibleAndEnabled(loginPage.signInWithPasswordBtn)

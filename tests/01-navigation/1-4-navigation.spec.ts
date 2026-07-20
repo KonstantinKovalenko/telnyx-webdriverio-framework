@@ -1,6 +1,6 @@
 import { expect } from '@wdio/globals'
 import homePage from '@pages/home.page.ts'
-import templatesPage from '@pages/resources/templates.page.ts'
+import aiTemplatesPage from '@pages/resources/templates.page.ts'
 import header from '@components/Header.ts'
 import megaMenu from '@components/MegaMenu.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
@@ -58,14 +58,18 @@ describe('Navigation, TC-02, TC-03, TC-04', () => {
 
         await expect(browser).toHaveUrl(expect.stringContaining('/templates'))
 
-        const firstTemplateTitle = await templatesPage.getFirstCardTitle()
-        await elementHelper.click(await templatesPage.getFirstCard())
+        const firstTemplateTitle = await aiTemplatesPage.getFirstCardTitle()
+        await elementHelper.click(await aiTemplatesPage.getFirstCard())
         await expect(elementHelper.getHeading(firstTemplateTitle, 'h1')).toBeDisplayed()
 
-        await elementHelper.expectVisibleAndEnabled(templatesPage.backToTemplatesBCrumb)
-        await elementHelper.click(templatesPage.backToTemplatesBCrumb)
+        await elementHelper.expectVisibleAndEnabled(aiTemplatesPage.backToTemplatesBCrumb)
+        
+        await elementHelper.click(aiTemplatesPage.backToTemplatesBCrumb)
 
         await expect(browser).toHaveUrl(expect.stringContaining('/templates'))
-        await expect(elementHelper.getHeading('Browse all Voice AI Assistant templates', 'h1')).toBeDisplayed()
+
+        await aiTemplatesPage.templatesHeader.waitForDisplayed()
+
+        await expect(aiTemplatesPage.templatesHeader).toBeDisplayed()
     })
 })

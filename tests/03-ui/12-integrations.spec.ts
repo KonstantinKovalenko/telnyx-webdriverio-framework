@@ -5,7 +5,6 @@ import integrationsPage from '@pages/integrations.page.ts'
 import header from '@components/Header.ts'
 import megaMenu from '@components/MegaMenu.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
-import browserHelper from '@helpers/BrowserHelper.ts'
 import waitHelper from '@helpers/WaitHelper.ts'
 
 describe('Search UI, TC-12', () => {
@@ -19,7 +18,7 @@ describe('Search UI, TC-12', () => {
         await elementHelper.click(megaMenu.developersIntegrations)
 
         await browser.waitUntil(async () => (await browser.getWindowHandles()).length === 2)
-        await browserHelper.switchToNewTab()
+        await browser.switchToWindow((await browser.getWindowHandles()).at(-1)!)
 
         await expect(browser).toHaveUrl(expect.stringContaining('/integrations'))
 

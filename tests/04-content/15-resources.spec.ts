@@ -21,7 +21,7 @@ describe('Resource center page content, TC-15', () => {
 
         await waitHelper.waitUntil(async () => (await (resourcesPage.popularCardsArray.length)) > 1,
             10000,
-            'Expected more then 1 result'
+            'Expected more than 1 result'
         )
 
         await expect(await (resourcesPage.popularCardsArray.length)).toBeGreaterThan(1)

@@ -9,6 +9,9 @@ describe('Error pages management, TC-18', () => {
         await error404Page.open(ERROR_URL)
 
         await expect(browser).toHaveUrl(ERROR_URL)
+
+        await header.siteHeader.waitForDisplayed()
+        
         await expect(header.siteHeader).toBeDisplayed()
         await expect(error404Page.errorHeading).toBeDisplayed()
         await expect(error404Page.doesnotExistHeading).toBeDisplayed()

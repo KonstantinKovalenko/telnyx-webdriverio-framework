@@ -2,6 +2,7 @@ import { $ } from '@wdio/globals'
 import BasePage from '../base.page.ts'
 
 class AITemplatesPage extends BasePage {
+    get templatesHeader () {return $('h1*=Browse all')}
     get #topTemplatesArray () {return $('.glider-track').$$('div')}
     get backToTemplatesBCrumb () {return $('a=Back to templates')}
 

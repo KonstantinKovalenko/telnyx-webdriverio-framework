@@ -5,10 +5,9 @@ import elasticSipPage from '@pages/pricing/elasticSip.page.ts'
 import header from '@components/Header.ts'
 import megaMenu from '@components/MegaMenu.ts'
 import elementHelper from '@helpers/ElementHelper.ts'
-import waitHelper from '@helpers/WaitHelper.ts'
 
 describe('Download pricing form validation, TC-07, TC-08', () => {
-    it('Shoud verify the "Download Pricing" form accepts valid input and submits successfully', async () => {
+    it('Should verify the "Download Pricing" form accepts valid input and submits successfully', async () => {
         await homePage.open('/')
 
         await elementHelper.expectVisibleAndEnabled(header.pricingBtn)
@@ -18,7 +17,7 @@ describe('Download pricing form validation, TC-07, TC-08', () => {
         await expect(browser).toHaveUrl(expect.stringContaining('/pricing/elastic-sip'))
 
         await elementHelper.scrollIntoView(elasticSipPage.downloadPricingHeader)
-        await waitHelper.waitForVisible(elasticSipPage.firstnameInput)
+        await elasticSipPage.firstnameInput.waitForDisplayed()
 
         await elementHelper.type(elasticSipPage.firstnameInput, users.validUser.firstName)
         await elementHelper.type(elasticSipPage.lastnameInput, users.validUser.lastName)
@@ -29,13 +28,13 @@ describe('Download pricing form validation, TC-07, TC-08', () => {
         await expect(elementHelper.getHeading('Thank you', 'h1')).toBeDisplayed()
     })
 
-    it('Shoud verify the "Download Pricing" form displays validation errors for empty required fields.', async () => {
+    it('Should verify the "Download Pricing" form displays validation errors for empty required fields.', async () => {
         await elasticSipPage.open()
 
         await expect(browser).toHaveUrl(expect.stringContaining('/pricing/elastic-sip'))
 
         await elementHelper.scrollIntoView(elasticSipPage.downloadPricingHeader)
-        await waitHelper.waitForVisible(elasticSipPage.firstnameInput)
+        await elasticSipPage.firstnameInput.waitForDisplayed()
 
         await expect(elasticSipPage.firstnameInput).toHaveValue('')
         await expect(elasticSipPage.lastnameInput).toHaveValue('')

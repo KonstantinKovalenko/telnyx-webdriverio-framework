@@ -1,6 +1,6 @@
 import { expect } from '@wdio/globals'
 import { Key } from 'webdriverio'
-import homePage from '@pages/error404.page.ts'
+import homePage from '@pages/home.page.ts'
 import aiWidget from '@components/AIWidget.ts'
 import header from '@components/Header.ts'
 import megaMenu from '@components/MegaMenu.ts'
@@ -13,7 +13,7 @@ describe('Dynamic widget testing, TC-19, TC-20', () => {
     })
 
     it('Should verify the AI Assistant opens, responds to a user message, and can be closed', async () => {
-        await waitHelper.waitForVisible(aiWidget.siteAIWidget)
+        await aiWidget.siteAIWidget.waitForDisplayed()
 
         await elementHelper.click(aiWidget.openWidgetBtn)
 
@@ -33,7 +33,7 @@ describe('Dynamic widget testing, TC-19, TC-20', () => {
     })
 
     it('Should verify the AI Assistant remains open during header navigation', async () => {
-        await waitHelper.waitForVisible(aiWidget.siteAIWidget)
+        await aiWidget.siteAIWidget.waitForDisplayed()
 
         await expect(aiWidget.userMessageInput).not.toBeClickable()
 
