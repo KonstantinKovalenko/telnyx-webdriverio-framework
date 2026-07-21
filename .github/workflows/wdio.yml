@@ -39,8 +39,11 @@ jobs:
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
 
+      - name: Build Docker image
+        run: docker build -t telnyx-wdio .
+
       - name: Install dependencies
-        run: docker build
+        run: npm ci
 
       - name: Run WebdriverIO tests
         run: npm run chrome
