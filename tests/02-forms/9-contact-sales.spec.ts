@@ -22,6 +22,7 @@ describe('Contact us form email validation, TC-09', () => {
         await elementHelper.type(contactUsPage.lastnameInput, users.validUser.lastName)
         await contactUsPage.reasonSelect.selectByVisibleText('Support')
 
+        await elementHelper.scrollIntoView(contactUsPage.submitBtn)
         await elementHelper.click(contactUsPage.submitBtn)
 
         await contactUsPage.emailValidationMsg.waitForExist()

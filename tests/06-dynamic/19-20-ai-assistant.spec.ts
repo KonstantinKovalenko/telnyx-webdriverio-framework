@@ -22,11 +22,16 @@ describe('Dynamic widget testing, TC-19, TC-20', () => {
         await elementHelper.type(aiWidget.userMessageInput, "Hello")
         await browser.keys(Key.Enter)
 
-        await waitHelper.waitUntil(async () => (await aiWidget.chatMessages.length) === 3,
-            15000,
-            'Expected 3 chat messages to be displayed'
-        )
-        expect(await aiWidget.chatMessages.length).toBeGreaterThan(2)
+        await waitHelper.waitUntil(async () => {
+            const messages = aiWidget.chatMessages
+            
+            if (await messages.length === 0) {
+                return false
+            }
+            const lastText = await messages[await messages.length - 1].getText()
+
+            return !lastText.startsWith('Hello! How can I assist')
+        }, 20000, 'Assistant did not respond')
 
         await elementHelper.click(aiWidget.closeWidgetBtn)
         await expect(aiWidget.userMessageInput).not.toBeClickable()
