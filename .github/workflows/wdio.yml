@@ -40,7 +40,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Install dependencies
-        run: npm ci
+        run: docker build
 
       - name: Run WebdriverIO tests
         run: npm run chrome
