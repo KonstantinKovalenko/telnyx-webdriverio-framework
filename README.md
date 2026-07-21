@@ -1,7 +1,7 @@
 # Telnyx WebdriverIO Test Automation Framework
 
 [![CI](https://github.com/KonstantinKovalenko/telnyx-webdriverio-framework/actions/workflows/wdio.yml/badge.svg)](https://github.com/KonstantinKovalenko/telnyx-webdriverio-framework/actions/workflows/wdio.yml)  
-Automated end-to-end testing framework for the **Telnyx** website built with **WebdriverIO** and **TypeScript**.
+Automated end-to-end testing framework for the **Telnyx** website built with **WebdriverIO**, **TypeScript**, and **Docker**.
 
 ✔ Page Object Model (POM) architecture  
 ✔ Component Object Model for reusable UI sections  
@@ -10,7 +10,8 @@ Automated end-to-end testing framework for the **Telnyx** website built with **W
 ✔ Cross-environment configuration  
 ✔ Reusable helper classes and centralized test data  
 ✔ Allure reporting  
-✔ GitHub Actions CI pipeline  
+✔ Docker support for local and CI execution  
+✔ GitHub Actions CI pipeline   
 ✔ Automatic Allure report publishing to GitHub Pages  
 
 [![GitHub Pages](https://img.shields.io/badge/View-Latest_Report-blue?logo=github)](https://konstantinkovalenko.github.io/telnyx-webdriverio-framework/)
@@ -53,9 +54,8 @@ GitHub Actions automatically executes the test pipeline when:
 
 The workflow performs the following steps:
 
-- Install dependencies
-- Launch Google Chrome
-- Execute the WebdriverIO test suite
+- Build the Docker image
+- Execute the WebdriverIO test suite inside the Docker container
 - Generate the Allure report
 - Publish the report to GitHub Pages
 
@@ -137,6 +137,27 @@ npm install
 | `npm run allure:open` | Open the generated Allure report in the browser. |
 | `npm run allure:clean` | Remove Allure results and generated reports. |
 | `npm run allure` | Generate and open the Allure report. |
+
+---
+
+### Run with Docker
+
+Build the image:
+
+```bash
+docker build -t telnyx-wdio .
+```
+
+Run the test suite:
+
+```bash
+docker run --rm \
+  -e DOCKER=true \
+  -e TEST_ENV=local \
+  telnyx-wdio
+```
+
+The same Docker image is used for both local execution and the GitHub Actions pipeline, ensuring a consistent test environment across development and CI.
 
 ---
 
