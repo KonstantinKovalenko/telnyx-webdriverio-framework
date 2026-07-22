@@ -2,8 +2,8 @@ import { expect } from '@wdio/globals'
 import { users } from '@utils/testData.ts'
 import homePage from '@pages/home.page.ts'
 import contactUsPage from '@pages/contactUs.page.ts'
-import header from '@components/Header.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
+import header from '@components/header.ts'
+import elementHelper from '@helpers/elementHelper.ts'
 
 describe('Contact us form email validation, TC-09', () => {
     beforeEach(async () => {

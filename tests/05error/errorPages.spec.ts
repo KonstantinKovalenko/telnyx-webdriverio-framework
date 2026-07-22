@@ -1,8 +1,8 @@
 import { expect } from '@wdio/globals'
 import { ERROR_URL } from '@utils/constants.ts'
 import error404Page from '@pages/error404.page.ts'
-import header from '@components/Header.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
+import header from '@components/header.ts'
+import elementHelper from '@helpers/elementHelper.ts'
 
 describe('Error pages management, TC-18', () => {
     it('Should verify a non-existent URL displays the custom 404 page', async () => {

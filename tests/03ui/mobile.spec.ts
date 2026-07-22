@@ -1,7 +1,7 @@
 import { expect } from '@wdio/globals'
 import homePage from '@pages/home.page.ts'
-import header from '@components/Header.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
+import header from '@components/header.ts'
+import elementHelper from '@helpers/elementHelper.ts'
 
 describe('Mobile UI, TC-13', () => {
     beforeEach(async () => {

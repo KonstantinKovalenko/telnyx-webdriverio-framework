@@ -2,10 +2,10 @@ import { expect } from '@wdio/globals'
 import { search } from '@utils/testData.ts'
 import homePage from '@pages/home.page.ts'
 import integrationsPage from '@pages/integrations.page.ts'
-import header from '@components/Header.ts'
-import megaMenu from '@components/MegaMenu.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
-import waitHelper from '@helpers/WaitHelper.ts'
+import header from '@components/header.ts'
+import megaMenu from '@components/megaMenu.ts'
+import elementHelper from '@helpers/elementHelper.ts'
+import waitHelper from '@helpers/waitHelper.ts'
 
 describe('Search UI, TC-12', () => {
     beforeEach(async () => {

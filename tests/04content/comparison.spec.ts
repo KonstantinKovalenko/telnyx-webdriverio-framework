@@ -1,8 +1,8 @@
 import { expect } from '@wdio/globals'
 import homePage from '@pages/home.page.ts'
 import switchPage from '@pages/switch.page.ts'
-import footer from '@components/Footer.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
+import footer from '@components/footer.ts'
+import elementHelper from '@helpers/elementHelper.ts'
 
 describe('Twilio compare page content, TC-17', () => {
     beforeEach(async () => {

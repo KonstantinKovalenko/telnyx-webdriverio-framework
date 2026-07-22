@@ -1,4 +1,4 @@
-import { baseConfig } from './wdio.base.conf.js'
+import { baseConfig } from './wdio.base.conf.ts'
 
 export const config = {
     ...baseConfig,

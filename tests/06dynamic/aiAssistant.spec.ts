@@ -1,11 +1,11 @@
 import { expect } from '@wdio/globals'
 import { Key } from 'webdriverio'
 import homePage from '@pages/home.page.ts'
-import aiWidget from '@components/AIWidget.ts'
-import header from '@components/Header.ts'
-import megaMenu from '@components/MegaMenu.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
-import waitHelper from '@helpers/WaitHelper.ts'
+import aiWidget from '@components/aiWidget.ts'
+import header from '@components/header.ts'
+import megaMenu from '@components/megaMenu.ts'
+import elementHelper from '@helpers/elementHelper.ts'
+import waitHelper from '@helpers/waitHelper.ts'
 
 describe('Dynamic widget testing, TC-19, TC-20', () => {
     beforeEach(async () => {
@@ -17,23 +17,19 @@ describe('Dynamic widget testing, TC-19, TC-20', () => {
 
         await elementHelper.click(aiWidget.openWidgetBtn)
 
-        await expect(aiWidget.chatMessages[0]).toHaveText(expect.stringContaining('Hello! I can help'))
+        const welcomeText = await aiWidget.getWelcomeMessageText()
+        expect(welcomeText).toContain('Hello! I can help')
 
         await elementHelper.type(aiWidget.userMessageInput, "Hello")
         await browser.keys(Key.Enter)
 
-        await waitHelper.waitUntil(async () => {
-            const messages = aiWidget.chatMessages
-            
-            if (await messages.length === 0) {
-                return false
-            }
-            const lastText = await messages[await messages.length - 1].getText()
+        await waitHelper.waitUntil(async () => {return (await aiWidget.getChatMessageCount()) >= 3
+            },20000, 'Expected 3 chat messages to be displayed')
 
-            return !lastText.startsWith('Hello! How can I assist')
-        }, 20000, 'Assistant did not respond')
+        const lastText = await aiWidget.getLastChatMessageText()
+        expect(lastText).toContain('Hello! How can I assist')
 
-        await elementHelper.click(aiWidget.closeWidgetBtn)
+        await elementHelper.click(await aiWidget.getCloseWidgetBtn())
         await expect(aiWidget.userMessageInput).not.toBeClickable()
     })
 

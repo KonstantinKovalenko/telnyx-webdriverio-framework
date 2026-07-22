@@ -1,9 +1,9 @@
 import { expect } from '@wdio/globals'
 import { users } from '@utils/testData.ts'
 import homePage from '@pages/home.page.ts'
-import loginPage from '@pages/login.page.ts'
-import header from '@components/Header.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
+import loginPage from '@pages/logIn.page.ts'
+import header from '@components/header.ts'
+import elementHelper from '@helpers/elementHelper.ts'
 
 describe('Login form validations, TC-05, TC-06', () => {
     it('Should verify Login form validation using an invalid email format', async () => {

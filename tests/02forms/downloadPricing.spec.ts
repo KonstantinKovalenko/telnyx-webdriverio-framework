@@ -2,9 +2,9 @@ import { expect } from '@wdio/globals'
 import { users } from '@utils/testData.ts'
 import homePage from '@pages/home.page.ts'
 import elasticSipPage from '@pages/pricing/elasticSip.page.ts'
-import header from '@components/Header.ts'
-import megaMenu from '@components/MegaMenu.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
+import header from '@components/header.ts'
+import megaMenu from '@components/megaMenu.ts'
+import elementHelper from '@helpers/elementHelper.ts'
 
 describe('Download pricing form validation, TC-07, TC-08', () => {
     it('Should verify the "Download Pricing" form accepts valid input and submits successfully', async () => {

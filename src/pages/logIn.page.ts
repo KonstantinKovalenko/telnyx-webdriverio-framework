@@ -1,7 +1,7 @@
 import { $ } from '@wdio/globals'
 import BasePage from './base.page.ts'
 
-class LoginPage extends BasePage {
+class LogInPage extends BasePage {
     get signInWithPasswordBtn() {return $('button=Sign in with password')}
     get sendMeLinkBtn () {return $('button=Send me sign-in link')}
     get loginBtn () {return $('button=Log in')}
@@ -18,4 +18,4 @@ class LoginPage extends BasePage {
     }
 }
 
-export default new LoginPage()
+export default new LogInPage()

@@ -1,9 +1,9 @@
 import { expect } from '@wdio/globals'
 import homePage from '@pages/home.page.ts'
 import messagingPage from '@pages/pricing/messaging.page.ts'
-import header from '@components/Header.ts'
-import megaMenu from '@components/MegaMenu.ts'
-import elementHelper from '@helpers/ElementHelper.ts'
+import header from '@components/header.ts'
+import megaMenu from '@components/megaMenu.ts'
+import elementHelper from '@helpers/elementHelper.ts'
 
 describe('Pricing page tabs, TC-14', () => {
     beforeEach(async () => {
@@ -19,7 +19,9 @@ describe('Pricing page tabs, TC-14', () => {
         await elementHelper.scrollIntoView(messagingPage.senderTypesHeader)
 
         await expect(messagingPage.servicesTable).toBeDisplayed()
-        await expect(await (messagingPage.carrierFeeLinks.length)).toBeGreaterThan(1)
+
+        const linksArrayLength = await messagingPage.carrierFeeLinks.length
+        expect(linksArrayLength).toBeGreaterThan(1)
 
         await elementHelper.click(messagingPage.rcsTab)
 
